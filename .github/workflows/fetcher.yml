@@ -1,0 +1,28 @@
+name: Fetcher
+
+on:
+  push:
+  schedule:
+    - cron: '1 15 * * *'
+  workflow_dispatch:
+
+jobs:
+  crawl:
+    name: NIST documents fetching
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.0
+      - name: Update gems
+        run: |
+          gem install relaton-cli
+      - name: Fetch documents
+        run: |
+          relaton fetch-data nist-tech-pubs
+      - name: Upload documents
+        uses: actions/upload-artifact@v2
+        with:
+          name: nist-docs
+          path: data
