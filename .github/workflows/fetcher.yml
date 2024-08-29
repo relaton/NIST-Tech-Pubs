@@ -21,8 +21,12 @@ jobs:
       - name: Fetch documents
         run: |
           relaton fetch-data nist-tech-pubs
+      - name: Compress documents
+        run: |
+          zip -r data.zip data
       - name: Upload documents
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: nist-docs
-          path: data
+          path: data.zip
+          overwrite: true
