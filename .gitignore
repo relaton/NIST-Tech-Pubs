@@ -2,3 +2,7 @@
 *~
 __pycache__
 .vscode/
+data/
+data.zip
+Gemfile.lock
+index-v2.yaml
