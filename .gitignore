@@ -2,3 +2,9 @@
 *~
 __pycache__
 .vscode/
+data/
+data.zip
+Gemfile.lock
+index-v2.yaml
+/allrecords.xml
+/downloads/nist_technical_pubs.bib
